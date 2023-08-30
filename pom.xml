@@ -13,10 +13,10 @@
 	</parent>
 
 	<!--for project information-->
-	<groupId>com.hamitmizrak</groupId>
-	<artifactId>TechCareer_FullStack_2</artifactId>
+	<groupId>com.silagedik</groupId>
+	<artifactId>todo_project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TechCareer_FullStack_2</name>
+	<name>todo_project</name>
 	<description>Spring Boot , react</description>
 
 	<!--properties-->
