@@ -31,14 +31,14 @@ abstract  public class AuditingAwareBaseDto  implements Serializable {
     protected String createdUser;
 
     // KİM NE ZAMAN EKLEDİ ?
-    /*@JsonIgnore
-    protected Date createdDate;*/
+    @JsonIgnore
+    protected Date createdDate;
 
     // KIM GÜNCELLEDİ ?
     @JsonIgnore
     protected String updatedUser;
 
     // KİM NE ZAMAN GÜNCELLEDİ ?
-    /*@JsonIgnore
-    protected Date updatedDate;*/
+    @JsonIgnore
+    protected Date updatedDate;
 }

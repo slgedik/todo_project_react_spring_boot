@@ -2,7 +2,6 @@ package com.silagedik.todo_project.data.entity;
 
 
 
-//import com.silagedik.data.BlogEntityEmbeddable;
 import com.silagedik.todo_project.auditing.AuditingAwareBaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -38,7 +37,7 @@ public class TodoEntity extends AuditingAwareBaseEntity implements Serializable 
     private boolean done;
     // Embedded
     /*@Embedded
-    private BlogEntityEmbeddable blogEntityEmbeddable=new BlogEntityEmbeddable();*/
+    private TodoEntityEmbeddable blogEntityEmbeddable=new TodoEntityEmbeddable();*/
 
 
     // Constructor (Parametresiz)

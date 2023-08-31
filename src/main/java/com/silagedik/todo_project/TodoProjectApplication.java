@@ -26,7 +26,7 @@ import java.util.TimeZone;
 // @EnableCaching
 
 // Auditin Aktif etmek
-//@EnableJpaAuditing(auditorAwareRef = "auditorAwareBeanMethod")
+@EnableJpaAuditing(auditorAwareRef = "auditorAwareBeanMethod")
 
 // Spring Security
 @SpringBootApplication(exclude = {
