@@ -86,8 +86,8 @@ public class TodoServicesImpl implements ITodoServices<TodoDto, TodoEntity> {
         TodoDto todoFindDto = todoServiceFindById(id);
         if (todoFindDto != null) {
             TodoEntity todoEntity = dtoToEntity(todoFindDto);
-            todoEntity.setTodoContent(todoDto.getTitle());
-            todoEntity.setDone(todoDto.isDone());
+            todoEntity.getTodoEntityEmbeddable().setTodoContent(todoDto.getTodoContent());
+            todoEntity.getTodoEntityEmbeddable().setDone(todoDto.isDone());
             iTodoRepository.save(todoEntity);
         }
         return todoDto;

@@ -23,13 +23,15 @@ public class CommandLineRunnerBean {
 
     private final ITodoRepository iTodoRepository;
 
-    public TodoEntity createTodo(String title) {
+
+    public TodoEntity createTodo(String todoContent) {
         TodoEntity todoEntity = new TodoEntity();
-        todoEntity.setTodoContent(title);
-        todoEntity.setDone(false); // Yeni görevler başlangıçta tamamlanmamış olarak kabul edilir
+        todoEntity.getTodoEntityEmbeddable().setTodoContent(todoContent);
+        todoEntity.getTodoEntityEmbeddable().setDone(false);
         iTodoRepository.save(todoEntity);
         return todoEntity;
     }
+
 
     public void createRandomTasks(int count) {
         for (int i = 0; i < count; i++) {

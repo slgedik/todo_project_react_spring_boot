@@ -1,5 +1,6 @@
 package com.silagedik.todo_project.business.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.silagedik.todo_project.auditing.AuditingAwareBaseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +25,6 @@ public class TodoDto extends AuditingAwareBaseDto implements Serializable
    // private Long id;
 
     @NotEmpty(message= "Todo cannot be empty")
-    private String title;
+    private String todoContent;
     private boolean done;
 }

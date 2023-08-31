@@ -3,6 +3,7 @@ package com.silagedik.todo_project.data.entity;
 
 
 import com.silagedik.todo_project.auditing.AuditingAwareBaseEntity;
+import com.silagedik.todo_project.data.TodoEntityEmbeddable;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
@@ -28,31 +29,21 @@ public class TodoEntity extends AuditingAwareBaseEntity implements Serializable 
     @Column(name="todo_id",unique = true,nullable = false,insertable = true,updatable = false)
     private Long todoId;
 
-    // Content of the Todo
-    @Column(name = "content", nullable = false)
-    private String todoContent;
 
-    // Status of the Todo (Done or Not Done)
-    @Column(name = "done", nullable = false)
-    private boolean done;
     // Embedded
-    /*@Embedded
-    private TodoEntityEmbeddable blogEntityEmbeddable=new TodoEntityEmbeddable();*/
+    @Embedded
+    private TodoEntityEmbeddable todoEntityEmbeddable=new TodoEntityEmbeddable();
 
 
     // Constructor (Parametresiz)
     public TodoEntity() {
+
     }
 
     // Constructor (Parametreli)
-    public TodoEntity(String todoContent, boolean done) {
-        this.todoContent = todoContent;
-        this.done = done;
+    public TodoEntity(TodoEntityEmbeddable todoEntityEmbeddable) {
+        this.todoEntityEmbeddable = todoEntityEmbeddable;
     }
 
-    // Constructor (Parametreli)
-   /*public BlogEntity(BlogEntityEmbeddable blogEntityEmbeddable, CategoryEntity relationCategoryEntity) {
-        this.blogEntityEmbeddable = blogEntityEmbeddable;
-        this.relationCategoryEntity = relationCategoryEntity;
-    }*/
+
 } //end class
