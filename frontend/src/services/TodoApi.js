@@ -22,6 +22,7 @@ class TodoApi {
 
   // /update/{id}
   todoApiUpdate(id, todoDto) {
+    console.log(todoDto);
     return axios.put(`${TODO_URL}/update/${id}`, todoDto);
   }
 

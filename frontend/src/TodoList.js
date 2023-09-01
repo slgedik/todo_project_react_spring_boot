@@ -7,6 +7,7 @@ function TodoList() {
   const [tasks, setTasks] = useState([]);
   const [editingIndex, setEditingIndex] = useState(-1);
   const [editedText, setEditedText] = useState('');
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,9 +28,14 @@ function TodoList() {
     const updatedTasks = [...tasks];
     updatedTasks[index].done = !updatedTasks[index].done;
 
+    const updatedTaskData = {
+      done: updatedTasks[index].done,
+      todoContent: updatedTasks[index].todoContent,
+    };
+
     // API'ye güncellenmiş görevi göndermek için PUT isteği gönderin
     todoApi
-      .todoApiUpdate(updatedTasks[index].id, { done: updatedTasks[index].done })
+      .todoApiUpdate(updatedTasks[index].id, updatedTaskData)
       .then(() => {
         setTasks(updatedTasks);
       })
@@ -82,6 +88,16 @@ function TodoList() {
       });
   };
 
+  /*const filterTasks = (filterType) => {
+    if (filterType === 'All') {
+      setFilteredTasks(tasks); // Tüm görevleri göster
+    } else if (filterType === 'Done') {
+      setFilteredTasks(tasks.filter((task) => task.done)); // Tamamlanmış görevleri göster
+    } else if (filterType === 'Todo') {
+      setFilteredTasks(tasks.filter((task) => !task.done)); // Tamamlanmamış görevleri göster
+    }
+  };*/
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -89,23 +105,31 @@ function TodoList() {
   return (
     <div className='mt-4'>
       {tasks.map((task, index) => (
-        <div className='inputClass border border-secondary mt-2' key={task.id}>
+        <div className='inputClass border border-secondary mt-2 mb-2' key={task.id}>
           {editingIndex === index ? (
             <>
-              <input type='text' value={editedText} onChange={(e) => setEditedText(e.target.value)} />
-              <button onClick={() => saveEditedTask(index, editedText)}>Save</button>
-              <button onClick={cancelEditing}>Cancel</button>
+              <input className='mt-2' type='text' value={editedText} onChange={(e) => setEditedText(e.target.value)} />
+              <button class='btn btn-success listBtn ml-2' onClick={() => saveEditedTask(index, editedText)}>
+                Save
+              </button>
+              <button class='btn btn-danger listBtn ml-2  ' onClick={cancelEditing}>
+                Cancel
+              </button>
             </>
           ) : (
             <div className='d-flex'>
-              <div className='mr-auto p-2'>
+              <div className=' p-2 flex-grow-1'>
                 <span style={{ textDecoration: task.done ? 'line-through' : 'none' }}>{task.todoContent}</span>
               </div>
 
-              <div className='p-2'>
+              <div className='p-2 '>
                 <input type='checkbox' checked={task.done} onChange={() => toggleTask(index)} />
-                <button onClick={() => startEditing(index, task.todoContent)}>Edit</button>
-                <button onClick={() => deleteTask(index)}>Delete</button>
+                <button class='btn btn-warning listBtn ml-2' onClick={() => startEditing(index, task.todoContent)}>
+                  Edit
+                </button>
+                <button class='btn btn-danger listBtn ml-2  ' onClick={() => deleteTask(index)}>
+                  Delete
+                </button>
               </div>
             </div>
           )}
