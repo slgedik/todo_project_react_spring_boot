@@ -22,9 +22,10 @@ public class TodoDto extends AuditingAwareBaseDto implements Serializable
     //serileştirme => bir veriyi başka bir yere taşırken herhangi bir sıkıntı yaşamamak için kullanırız
     public static final Long serialVersionUID= 1L;
 
-   // private Long id;
+
 
     @NotEmpty(message= "Todo cannot be empty")
+    @JsonProperty("todoContent") // JSON verisi ile eşleşen alan adı
     private String todoContent;
     private boolean done;
 }

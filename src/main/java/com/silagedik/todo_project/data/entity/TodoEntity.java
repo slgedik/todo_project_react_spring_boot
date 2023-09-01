@@ -37,11 +37,11 @@ public class TodoEntity extends AuditingAwareBaseEntity implements Serializable 
 
     // Constructor (Parametresiz)
     public TodoEntity() {
-
     }
 
     // Constructor (Parametreli)
     public TodoEntity(TodoEntityEmbeddable todoEntityEmbeddable) {
+
         this.todoEntityEmbeddable = todoEntityEmbeddable;
     }
 

@@ -33,6 +33,7 @@ public class CommandLineRunnerBean {
     }
 
 
+
     public void createRandomTasks(int count) {
         for (int i = 0; i < count; i++) {
             createTodo("Task " + (i + 1));

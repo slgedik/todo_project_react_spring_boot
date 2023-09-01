@@ -5,7 +5,6 @@ import com.silagedik.todo_project.business.dto.TodoDto;
 import com.silagedik.todo_project.business.services.ITodoServices;
 import com.silagedik.todo_project.data.entity.TodoEntity;
 import com.silagedik.todo_project.data.repository.ITodoRepository;
-//import com.silagedik.todo_project.exception.HamitMizrakException;
 import com.silagedik.todo_project.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
