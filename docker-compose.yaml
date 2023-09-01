@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  blogapp:
+    container_name: docker_todo_react
+    image: docker_todo_react
+    restart: always
+    build: ./
+    ports:
+      - "4444:4444"
+    environment:
+      - spring.datasource.url=jdbc:postgresql://postgres:5432/tododb?serverTimezone=Europe/Istanbul
+    networks:
+      - springpostgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=tododb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+    restart: unless-stopped
+
+networks:
+  springpostgres:
+    name: springpostgres
+    driver: bridge

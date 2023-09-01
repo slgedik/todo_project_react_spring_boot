@@ -13,8 +13,8 @@ import java.util.Date;
 @Embeddable
 public class TodoEntityEmbeddable {
 
-    @Column(name = "todoContent", columnDefinition = "varchar(255) default 'todo içeriği girilmedi'")
-    private String todoContent;
+    /*@Column(name = "todo_content", columnDefinition = "varchar(255) default 'todo içeriği girilmedi'")
+    private String todoContent;*/
 
     @Column(name = "done", nullable = false, columnDefinition = "boolean default false")
     private boolean done;

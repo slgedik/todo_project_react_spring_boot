@@ -29,6 +29,9 @@ public class TodoEntity extends AuditingAwareBaseEntity implements Serializable 
     @Column(name="todo_id",unique = true,nullable = false,insertable = true,updatable = false)
     private Long todoId;
 
+    @Column(name = "todo_content", columnDefinition = "varchar(255) default 'todo içeriği girilmedi'")
+    private String todoContent;
+
 
     // Embedded
     @Embedded
