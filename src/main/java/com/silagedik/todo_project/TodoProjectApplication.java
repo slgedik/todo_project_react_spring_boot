@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import java.util.TimeZone;
 
 
+
 // Mongo aktif etmek ici
 // @EnableMongoRepositories
 

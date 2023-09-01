@@ -12,7 +12,9 @@ package com.silagedik.todo_project.controller.api.impl;
         import org.springframework.web.bind.annotation.*;
 
         import java.util.List;
+        import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "http://localhost:3000") // React uygulamasının URL'si
 @RequiredArgsConstructor
 @Log4j2
 @RestController
@@ -62,9 +64,5 @@ public class TodoApiImpl implements ITodoApi<TodoDto> {
         return ResponseEntity.ok("All data deleted.");
     }
 
-   /* @Override
-    public ResponseEntity<List<TodoDto>> todoApiSpeedData(Long key) {
-        return null; // Daha sonra doldurabilirsiniz.
-    }*/
 }
 

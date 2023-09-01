@@ -35,6 +35,13 @@ function App() {
         tasks={filteredTasks}
         editingIndex={editingIndex}
         editedText={editedText}
+        setTasks={setTasks}
+        setEditingIndex={setEditingIndex}
+        setEditedText={setEditedText}
+        cancelEditing={() => {
+          setEditingIndex(-1);
+          setEditedText('');
+        }}
         toggleTask={(index) => {
           const updatedTasks = [...tasks];
           updatedTasks[index].completed = !updatedTasks[index].completed;
@@ -43,23 +50,6 @@ function App() {
         startEditing={(index, text) => {
           setEditingIndex(index);
           setEditedText(text);
-        }}
-        saveEditedTask={(index, newText) => {
-          if (newText.trim() !== '') {
-            const updatedTasks = [...tasks];
-            updatedTasks[index].text = newText;
-            setTasks(updatedTasks);
-            setEditingIndex(-1);
-            setEditedText('');
-          }
-        }}
-        cancelEditing={() => {
-          setEditingIndex(-1);
-          setEditedText('');
-        }}
-        deleteTask={(index) => {
-          const updatedTasks = tasks.filter((_, i) => i !== index);
-          setTasks(updatedTasks);
         }}
       />
     </div>
