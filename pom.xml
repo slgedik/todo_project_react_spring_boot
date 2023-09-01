@@ -41,18 +41,18 @@
 	<dependencies>
 		<!-- COMPONENT -->
 
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-docker-compose</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
+		</dependency>-->
 
 		<!-- MAİL-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<!--Spring Web Mvc Rest-->
 		<dependency>
