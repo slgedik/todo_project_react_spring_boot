@@ -15,11 +15,6 @@ class TodoApi {
     return axios.get(`${TODO_URL}/list`);
   }
 
-  // /find/{id}
-  todoApiFindById(id) {
-    return axios.get(`${TODO_URL}/find/${id}`);
-  }
-
   // /update/{id}
   todoApiUpdate(id, todoDto) {
     console.log(todoDto);

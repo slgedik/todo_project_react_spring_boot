@@ -3,7 +3,7 @@ import TodoApi from './services/TodoApi';
 
 const todoApi = new TodoApi();
 
-function TodoList() {
+function TodoList({ filter }) {
   const [tasks, setTasks] = useState([]);
   const [editingIndex, setEditingIndex] = useState(-1);
   const [editedText, setEditedText] = useState('');
@@ -88,19 +88,15 @@ function TodoList() {
       });
   };
 
-  /*const filterTasks = (filterType) => {
-    if (filterType === 'All') {
-      setFilteredTasks(tasks); // Tüm görevleri göster
-    } else if (filterType === 'Done') {
-      setFilteredTasks(tasks.filter((task) => task.done)); // Tamamlanmış görevleri göster
-    } else if (filterType === 'Todo') {
-      setFilteredTasks(tasks.filter((task) => !task.done)); // Tamamlanmamış görevleri göster
+  /*const filteredTasks = tasks.filter((task) => {
+    if (filter === 'Done') {
+      return task.done;
+    } else if (filter === 'Todo') {
+      return !task.done;
+    } else {
+      return true; // Show all tasks when the filter is 'All'
     }
-  };*/
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  });*/
 
   return (
     <div className='mt-4'>

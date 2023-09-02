@@ -39,11 +39,6 @@ public class TodoApiImpl implements ITodoApi<TodoDto> {
         return ResponseEntity.status(HttpStatus.OK).body(iTodoServices.todoServiceList());
     }
 
-    @Override
-    @GetMapping("/find/{id}")
-    public ResponseEntity<?> todoApiFindById(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(iTodoServices.todoServiceFindById(id));
-    }
 
     @Override
     @PutMapping("/update/{id}")

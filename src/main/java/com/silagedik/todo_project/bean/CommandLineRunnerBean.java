@@ -26,7 +26,6 @@ public class CommandLineRunnerBean {
 
     public TodoEntity createTodo(String todoContent) {
         TodoEntity todoEntity = new TodoEntity();
-      //  todoEntity.getTodoEntityEmbeddable().setTodoContent(todoContent);
         todoEntity.setTodoContent(todoContent);
         todoEntity.getTodoEntityEmbeddable().setDone(false);
         iTodoRepository.save(todoEntity);

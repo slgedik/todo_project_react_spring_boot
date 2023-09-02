@@ -13,8 +13,6 @@ public interface ITodoApi<D> {
     // LIST
     public ResponseEntity<List<D>>  todoApiList();
 
-    // FIND BY
-    public ResponseEntity<?>  todoApiFindById(Long id);
 
     // UPDATE
     public ResponseEntity<?>  todoApiUpdate(Long id,D d);

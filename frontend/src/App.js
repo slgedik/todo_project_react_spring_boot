@@ -7,51 +7,15 @@ import TodoList from './TodoList';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('all');
-  const [editingIndex, setEditingIndex] = useState(-1);
-  const [editedText, setEditedText] = useState('');
-
-  const filterTasks = (filterType) => {
-    setFilter(filterType);
-  };
-
-  const filteredTasks = tasks.filter((task) => {
-    if (filter === 'done') {
-      return task.completed;
-    } else if (filter === 'todo') {
-      return !task.completed;
-    } else {
-      return true;
-    }
-  });
 
   return (
     <div className='App'>
       <div>
         <TodoInput tasks={tasks} setTasks={setTasks} />
-        <TodoMenu filterTasks={filterTasks} />
+        <TodoMenu filter={filter} setFilter={setFilter} />
       </div>
 
-      <TodoList
-        tasks={filteredTasks}
-        editingIndex={editingIndex}
-        editedText={editedText}
-        setTasks={setTasks}
-        setEditingIndex={setEditingIndex}
-        setEditedText={setEditedText}
-        cancelEditing={() => {
-          setEditingIndex(-1);
-          setEditedText('');
-        }}
-        toggleTask={(index) => {
-          const updatedTasks = [...tasks];
-          updatedTasks[index].completed = !updatedTasks[index].completed;
-          setTasks(updatedTasks);
-        }}
-        startEditing={(index, text) => {
-          setEditingIndex(index);
-          setEditedText(text);
-        }}
-      />
+      <TodoList setFilter={filter} setTasks={setTasks} />
     </div>
   );
 }

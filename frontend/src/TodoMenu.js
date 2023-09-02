@@ -1,15 +1,15 @@
 import React from 'react';
 
-function TodoMenu({ filterTasks }) {
+function TodoMenu({ filter, setFilter }) {
   return (
     <div className='todo-menu'>
-      <button class='btn btn-success ' onClick={() => filterTasks('All')}>
+      <button class='btn btn-success ' onClick={() => setFilter('All')}>
         All
       </button>
-      <button class='btn btn-success' onClick={() => filterTasks('Done')}>
+      <button class='btn btn-success' onClick={() => setFilter('Done')}>
         Done
       </button>
-      <button class='btn btn-success' onClick={() => filterTasks('Todo')}>
+      <button class='btn btn-success' onClick={() => setFilter('Todo')}>
         Todo
       </button>
     </div>

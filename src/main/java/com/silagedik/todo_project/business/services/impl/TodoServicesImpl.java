@@ -65,20 +65,6 @@ public class TodoServicesImpl implements ITodoServices<TodoDto, TodoEntity> {
         return entityToDto(findTodoEntity);
     }
 
-    /*@Override
-    public TodoDto todoServiceFindByDone(boolean done) {
-        List<TodoEntity> doneTodoEntities = iTodoRepository.findByDone(done);
-        List<TodoDto> doneTodoDtos = new ArrayList<>();
-
-        for (TodoEntity entity : doneTodoEntities) {
-            TodoDto dto = entityToDto(entity);
-            doneTodoDtos.add(dto);
-        }
-
-        log.info("Done Todos Count: " + doneTodoDtos.size());
-        return doneTodoDtos;
-    }*/
-
     @Override
     @Transactional
     public TodoDto todoServiceUpdate(Long id, TodoDto todoDto) {

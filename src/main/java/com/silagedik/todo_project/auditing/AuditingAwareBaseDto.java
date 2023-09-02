@@ -20,12 +20,8 @@ abstract  public class AuditingAwareBaseDto  implements Serializable {
     // ID
     private Long id;
 
-    // DATE
-   /* @Builder.Default
-    private Date systemDate=new Date(System.currentTimeMillis());*/
-
     // AUDTING
-    // @JsonIgnore => Backentte veri giderken bu bilgiyi gösterme
+    // @JsonIgnore => Backendte veri giderken bu bilgiyi gösterme
     // KIM EKLEDİ ?
     @JsonIgnore
     protected String createdUser;
@@ -42,3 +38,5 @@ abstract  public class AuditingAwareBaseDto  implements Serializable {
     @JsonIgnore
     protected Date updatedDate;
 }
+
+
