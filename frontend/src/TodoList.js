@@ -11,7 +11,7 @@ function TodoList({ filter }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Verileri API'den çekmek için useEffect kullanın
+    // Verileri API'den çekme
     todoApi
       .todoApiList()
       .then((response) => {
@@ -22,7 +22,7 @@ function TodoList({ filter }) {
         console.error('Veri yükleme hatası:', error);
         setLoading(false);
       });
-  }, []); // Boş bağımlılık dizisi, yalnızca bileşen ilk yüklendiğinde çalışır
+  }, []); // ilk yüklendiğinde çalışır
 
   const toggleTask = (index) => {
     const updatedTasks = [...tasks];
@@ -33,7 +33,7 @@ function TodoList({ filter }) {
       todoContent: updatedTasks[index].todoContent,
     };
 
-    // API'ye güncellenmiş görevi göndermek için PUT isteği gönderin
+    //Güncelleme işlemi
     todoApi
       .todoApiUpdate(updatedTasks[index].id, updatedTaskData)
       .then(() => {

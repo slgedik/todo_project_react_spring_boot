@@ -26,11 +26,6 @@ public class PostmanPersist {
      Host: localhost:4444
      */
 
-    // FIND
-    /**
-     GET /todo/api/v1/find/1 HTTP/1.1
-     Host: localhost:4444
-     */
 
     // UPDATE
     /**
